@@ -15,21 +15,16 @@ library(tidyverse)
 nobel <- read_csv("data/nobel.csv")
 ```
 
-## Exercises
-
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+```{r variables}
+print(nobel)
+```
+
+There are 935 observations and 26 variables in the dataset. Each row in the nobel dataset represents a Nobel Prize winner. That row includes all the information about the person, such as name, year of winning, and the category of the prize in each column. 
 
 ### Exercise 2
 
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
 
 ### Exercise 3
 
