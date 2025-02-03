@@ -18,13 +18,20 @@ nobel <- read_csv("data/nobel.csv")
 ### Exercise 1
 
 ```{r variables}
+as_tibble(nobel)
 print(nobel)
 ```
 
-There are 935 observations and 26 variables in the dataset. Each row in the nobel dataset represents a Nobel Prize winner. That row includes all the information about the person, such as name, year of winning, and the category of the prize in each column. 
+There are `r nrow(nobel)` observations and `r ncol(nobel)` variables in the dataset. Each row in the nobel dataset represents a Nobel Prize winner. That row includes all the information about the person, such as name, year of winning, and the category of the prize in each column. 
 
-### Exercise 2
+### Exercise 2 Create a new data frame called nobel_living that filters fo
 
+```{r}
+filtered_data <- filter(nobel,  is.na(died_date), !is.na(country), gender != "org")
+filtered_data
+```
+
+there are `r nrow(filtered_data)` observations. 
 
 ### Exercise 3
 
