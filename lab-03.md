@@ -201,3 +201,15 @@ based in the US when they won the prizes, most of them in general were
 not born in the USA.
 
 ### Exercise 6
+
+``` r
+nobel_living_country <- nobel_living %>%
+  filter(!born_country == "USA") %>%
+  filter(country == "USA") %>%
+  count(born_country) %>%
+  arrange(desc(n))
+```
+
+According to the table, United Kingdom and Germany are the most common
+in having living nobel laureates whom were born outside the USA but won
+the prizes within the USA.
