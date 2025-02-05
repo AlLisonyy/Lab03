@@ -35,7 +35,7 @@ There are `r nrow(filtered_data)` observations.
 
 ### Exercise 2
 
-```{r}
+```{r novbel living science}
 nobel_living <- nobel_living %>%
   mutate(
     country_us = if_else(country == "USA", "USA", "Other")
@@ -49,11 +49,11 @@ print(nobel_living_science)
 
 ### Exercise 3
 
-```{r}
+```{r Country}
 
 library(ggplot2)
 
-ggplot(nobel_living_science, aes(x = country_us, fill = category)) +
+ggplot(nobel_living_science, aes(x = country_us, fill = country_us)) +
   geom_bar() + 
   coord_flip() +
   facet_wrap(~ category) +
@@ -61,11 +61,44 @@ ggplot(nobel_living_science, aes(x = country_us, fill = category)) +
        x = "Country", y = "Number of Prizes") 
 ```
 
+According to the plot graphs, the data supported the Buzzfeed's claim that most living Nobel laureates were based in the US when they won their prizes. For all four types of prizes, most of the living nobel laureates won their prizes when they are in USA. 
 
+### Exercise 4
+
+```{r}
+nobel_living_science <- nobel_living %>%
+  mutate(
+    country_us = if_else(country == "USA", "USA", "Other") 
+  )
+
+nobel_living_science %>%
+  count(country_us)
+```
+
+In total, 147 of the winners are born in the USA. 
 ### Exercise 5
 
-...
+```{r second variable added}
+
+nobel_living_science <- nobel_living %>%
+  mutate(
+    born_us = if_else(born_country == "USA", "USA", "Other") 
+  )%>%
+  mutate(
+    country_us = if_else(country == "USA", "USA", "Other") 
+  )
+
+ggplot(nobel_living_science, aes(x = country_us, fill = born_us)) +
+  geom_bar() +  
+  coord_flip() +
+  facet_wrap(~ category) +  
+  labs(title = "Nobel Prizes by Category, Award Country, and Birth country",
+       x = "Country", 
+       y = "Number of Prizes",
+       fill = "Born in US"
+  )
+```
+
+According to the graphs, although most of the living nobel laureates are based in the US when they won the prizes, most of them in general were not born in the USA. 
 
 ### Exercise 6
-
-...
