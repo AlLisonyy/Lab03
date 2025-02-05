@@ -31,7 +31,7 @@ nobel_living <- filter(nobel,  is.na(died_date), !is.na(country), gender != "org
 nobel_living
 ```
 
-There are `r nrow(filtered_data)` observations. 
+There are `r nrow(nobel_living)` observations. 
 
 ### Exercise 2
 
@@ -102,3 +102,14 @@ ggplot(nobel_living_science, aes(x = country_us, fill = born_us)) +
 According to the graphs, although most of the living nobel laureates are based in the US when they won the prizes, most of them in general were not born in the USA. 
 
 ### Exercise 6
+
+```{r frequency}
+
+nobel_living_country <- nobel_living %>%
+  filter(!born_country == "USA") %>%
+  filter(country == "USA") %>%
+  count(born_country) %>%
+  arrange(desc(n))
+```
+
+According to the table, United Kingdom and Germany are the most common in having living nobel laureates whom were born outside the USA but won the prizes within the USA. 
